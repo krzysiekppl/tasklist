@@ -6,7 +6,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 
-
 public class Task {
 
     public Task(int id, String title, String description, String summary, Status status, boolean done, LocalDate createDate, LocalDate dueDate, List<Skill> requiredSkills, Priority priority, Location location, String createUserExternalId, String assignedUserExternalId) {
@@ -147,9 +146,6 @@ public class Task {
     private String assignedUserExternalId;
 
 
-
-
-
     public static class TaskBuilder {
 
 
@@ -176,7 +172,7 @@ public class Task {
             return this;
         }
 
-        public TaskBuilder withTitle (String title){
+        public TaskBuilder withTitle(String title) {
             this.title = title;
             return this;
         }
@@ -189,48 +185,57 @@ public class Task {
         }
 
 
-        public TaskBuilder withSummary (String summary){
+        public TaskBuilder withSummary(String summary) {
             this.summary = summary;
             return this;
         }
-        public TaskBuilder withStatus (Status status){
+
+        public TaskBuilder withStatus(Status status) {
             this.status = status;
             return this;
         }
-        public TaskBuilder withDone (boolean done){
+
+        public TaskBuilder withDone(boolean done) {
             this.done = done;
             return this;
         }
-        public TaskBuilder withCreateDate ( LocalDate createDate){
+
+        public TaskBuilder withCreateDate(LocalDate createDate) {
             this.createDate = createDate;
             return this;
         }
-        public TaskBuilder withDueDate (LocalDate dueDate){
+
+        public TaskBuilder withDueDate(LocalDate dueDate) {
             this.dueDate = dueDate;
             return this;
         }
-        public TaskBuilder withRequiredSkills (List<Skill> requiredSkills){
+
+        public TaskBuilder withRequiredSkills(List<Skill> requiredSkills) {
             this.requiredSkills = requiredSkills;
             return this;
         }
-        public TaskBuilder withPriority (Priority priority){
+
+        public TaskBuilder withPriority(Priority priority) {
             this.priority = priority;
             return this;
         }
-        public TaskBuilder withLocation (Location location){
+
+        public TaskBuilder withLocation(Location location) {
             this.location = location;
             return this;
         }
-        public TaskBuilder withCreateUserExternalId (String createUserExternalId){
+
+        public TaskBuilder withCreateUserExternalId(String createUserExternalId) {
             this.createUserExternalId = createUserExternalId;
             return this;
         }
-        public TaskBuilder withAssignedUserExternalId (String assignedUserExternalId){
+
+        public TaskBuilder withAssignedUserExternalId(String assignedUserExternalId) {
             this.assignedUserExternalId = assignedUserExternalId;
             return this;
         }
 
-        public Task build (){
+        public Task build() {
             Task task = new Task();
             task.id = this.id;
             task.title = this.title;
@@ -246,10 +251,6 @@ public class Task {
             task.requiredSkills = this.requiredSkills;
             task.status = this.status;
             return task;
-            
         }
-
     }
-
-
 }
