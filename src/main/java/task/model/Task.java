@@ -146,7 +146,12 @@ public class Task {
     private String createUserExternalId;
     private String assignedUserExternalId;
 
+
+
+
+
     public static class TaskBuilder {
+
 
         private int id;
         private String title;
@@ -166,19 +171,23 @@ public class Task {
         }
 
         public TaskBuilder withId(int id) {
+
             this.id = id;
             return this;
         }
 
-        public TaskBuilder withTitle(String title) {
+        public TaskBuilder withTitle (String title){
             this.title = title;
-            return  this;
+            return this;
         }
 
+
         public TaskBuilder withDescription(String description) {
+
             this.description = description;
             return this;
         }
+
 
         public TaskBuilder withSummary (String summary){
             this.summary = summary;
@@ -200,7 +209,7 @@ public class Task {
             this.dueDate = dueDate;
             return this;
         }
-        public TaskBuilder withRequiredSkills (List requiredSkills){
+        public TaskBuilder withRequiredSkills (List<Skill> requiredSkills){
             this.requiredSkills = requiredSkills;
             return this;
         }
@@ -241,5 +250,6 @@ public class Task {
         }
 
     }
+
 
 }
