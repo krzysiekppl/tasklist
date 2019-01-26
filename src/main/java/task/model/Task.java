@@ -5,21 +5,9 @@ import location.model.Location;
 import java.time.LocalDate;
 import java.util.List;
 
-public class Task {
-    private int id;
-    private String title;
-    private String description;
-    private String summary;
-    private Status status;
-    private boolean done;
-    private LocalDate createDate;
-    private LocalDate dueDate;
-    private List<Skill> requiredSkills;
-    private Priority priority;
-    private Location location;
-    private String createUserExternalId;
-    private String assignedUserExternalId;
 
+
+public class Task {
 
     public Task(int id, String title, String description, String summary, Status status, boolean done, LocalDate createDate, LocalDate dueDate, List<Skill> requiredSkills, Priority priority, Location location, String createUserExternalId, String assignedUserExternalId) {
         this.id = id;
@@ -141,7 +129,25 @@ public class Task {
         this.assignedUserExternalId = assignedUserExternalId;
     }
 
-    public static class TaskBuiler {
+    public Task() {
+    }
+
+    private int id;
+    private String title;
+    private String description;
+    private String summary;
+    private Status status;
+    private boolean done;
+    private LocalDate createDate;
+    private LocalDate dueDate;
+    private List<Skill> requiredSkills;
+    private Priority priority;
+    private Location location;
+    private String createUserExternalId;
+    private String assignedUserExternalId;
+
+    public static class TaskBuilder {
+
         private int id;
         private String title;
         private String description;
@@ -156,68 +162,84 @@ public class Task {
         private String createUserExternalId;
         private String assignedUserExternalId;
 
-        public TaskBuiler(){
-
+        public TaskBuilder() {
         }
-        public TaskBuiler withId(int id){
+
+        public TaskBuilder withId(int id) {
             this.id = id;
             return this;
         }
 
-        public TaskBuiler withTitle (String title){
+        public TaskBuilder withTitle(String title) {
             this.title = title;
-            return this;
+            return  this;
         }
 
-        public TaskBuiler withDescription (String description){
+        public TaskBuilder withDescription(String description) {
             this.description = description;
             return this;
         }
 
-        public TaskBuiler withSummary (String summary){
+        public TaskBuilder withSummary (String summary){
             this.summary = summary;
             return this;
         }
-
-        public TaskBuiler withStatus (Status status){
+        public TaskBuilder withStatus (Status status){
             this.status = status;
             return this;
         }
-
-        public TaskBuiler withDone (boolean done){
+        public TaskBuilder withDone (boolean done){
             this.done = done;
             return this;
         }
-
-        public TaskBuiler withCreateDate (LocalDate createDate){
+        public TaskBuilder withCreateDate ( LocalDate createDate){
             this.createDate = createDate;
             return this;
         }
-
-        public TaskBuiler withDueDate (LocalDate dueDate){
+        public TaskBuilder withDueDate (LocalDate dueDate){
             this.dueDate = dueDate;
             return this;
         }
-
-        public TaskBuiler withReguiredSkills (List<Skill> requiredSkills){
+        public TaskBuilder withRequiredSkills (List requiredSkills){
             this.requiredSkills = requiredSkills;
             return this;
         }
-
-        public TaskBuiler withPriority (Priority priority){
+        public TaskBuilder withPriority (Priority priority){
             this.priority = priority;
             return this;
         }
-
-        public TaskBuiler withLocation (Location location){
+        public TaskBuilder withLocation (Location location){
             this.location = location;
             return this;
         }
-
-        public TaskBuiler withUserExternalId (String createUserExternalId){
+        public TaskBuilder withCreateUserExternalId (String createUserExternalId){
             this.createUserExternalId = createUserExternalId;
             return this;
         }
+        public TaskBuilder withAssignedUserExternalId (String assignedUserExternalId){
+            this.assignedUserExternalId = assignedUserExternalId;
+            return this;
+        }
+
+        public Task build (){
+            Task task = new Task();
+            task.id = this.id;
+            task.title = this.title;
+            task.description = this.description;
+            task.summary = this.summary;
+            task.assignedUserExternalId = this.assignedUserExternalId;
+            task.createDate = this.createDate;
+            task.createUserExternalId = this.createUserExternalId;
+            task.done = this.done;
+            task.dueDate = this.dueDate;
+            task.location = this.location;
+            task.priority = this.priority;
+            task.requiredSkills = this.requiredSkills;
+            task.status = this.status;
+            return task;
+            
+        }
 
     }
+
 }
